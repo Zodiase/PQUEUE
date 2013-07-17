@@ -1,5 +1,13 @@
-// process queue module
-// process queue v2.4
+/*!
+ * Process Queue v2.4
+ * https://github.com/Zodiase/PQUEUE
+ *
+ * Copyright 2013 Xingchen Hong
+ * Released under the MIT license
+ * https://raw.github.com/Zodiase/PQUEUE/master/LICENSE
+ *
+ * Date: 2013-07-17 19:48
+ */
 /*
 Change Log:
      Everything is re-written. A clock within a queue is used to fire ticks
