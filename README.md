@@ -11,6 +11,7 @@ them.
 
 One could use chaining in jQuery to create a series of animations on a single object, and
 they get executed one by one because jQuery creates an internal animation queue.
+
 In many cases, however, I'd like to execute an animation on another object right after
 this one finishes. One simple code clip would look something like this:
 
@@ -48,8 +49,8 @@ I thought I could do something like this:
 	| animateObj1();                                            |
 	+===========================================================+
 
-It's tidier now, but still I find it a little confusing when I want to make some adjust-
-ments.
+It's tidier now, but still I find it a little confusing when I want to make some
+adjustments.
 
 Then I wrote this library, PQUEUE, and now the code looks like this:
 
