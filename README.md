@@ -1,5 +1,5 @@
 Process Queue for Javascript
-======
+============================
 
 Originally I wrote this to use with jQuery for better _flow control_ over asynchronous
 tasks.
@@ -88,6 +88,6 @@ It might look no different but there's more:
 
 Now I have more freedom in the way of organizing my code.
 
-__For more detail please read the API document.__
+**For more detail please read the [API document](API_DOCUMENT_v2.4.md).**
 
-__Hope you find this usefull! :)__
+**Hope you find this usefull! :)**
