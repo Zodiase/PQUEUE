@@ -1,48 +1,43 @@
 Process Queue library for Javascript
-======
+====================================
+**Ver. 2.4**
 
-Ver. 2.4
-
-__PQUEUE Creation Interface:__
+**PQUEUE Creation Interface:**
 
 	pqueue PQUEUE([pqueue_api parent, ]array processArray[, int initialPC][, string queueName]);
 
-Arguments:
+	Arguments:
+		pqueue_api parent      : Optional argument. Used when connecting a sub-queue to its parent. NULL by default.
+		array      processArray: An array of `process` functions to be executed. Each function will be filled with 
+		                         two arguments as illustrated below:
+		
+		                         +--------------------------------------------------------+
+		                         | function aProcess(pqueue_api queue, object heap) {...} |
+		                         +--------------------------------------------------------+
+				
+		int        initialPC   : Initial value of the process counter. 0 by default.
+		string     queueName   : Name of the queue. If specified, the result queue can be fetched later with the 
+		                         Reference Interface.
+	Return:
+		A pqueue object if all given arguments are valid. NULL on error.
 
-	pqueue_api parent      : Optional argument. Used when connecting a sub-queue to its parent. NULL by default.
-	array      processArray: An array of `process` functions to be executed. Each function will be filled with 
-	                         two arguments as illustrated below:
-	
-	                         +--------------------------------------------------------+
-	                         | function aProcess(pqueue_api queue, object heap) {...} |
-	                         +--------------------------------------------------------+
-			
-	int        initialPC   : Initial value of the process counter. 0 by default.
-	string     queueName   : Name of the queue. If specified, the result queue can be fetched later with the 
-	                         Reference Interface.
-Return:
-
-	A pqueue object if all given arguments are valid. NULL on error.
-======
-__PQUEUE Reference Interface:__
+**PQUEUE Reference Interface:**
 
 	pqueue_object PQUEUE(string queueName);
 
-Arguments:
+	Arguments:
+		string     queueName   : Name of the queue to search.
+	Return:
+		A pqueue object if found, otherwise undefined.
 
-	string     queueName   : Name of the queue to search.
-Return:
-
-	A pqueue object if found, otherwise undefined.
-======
-__`pqueue` interface:__
+**`pqueue` interface:**
 
 	interface pqueue {
 		void function boot();
 		void function halt();
 	}
-======
-__`pqueue_api` interface:__
+
+**`pqueue_api` interface:**
 
 	interface pqueue_api {
 		object heap;
@@ -53,8 +48,8 @@ __`pqueue_api` interface:__
 		boolean function isPaused();
 		pqueue_api parent;
 	}
-======
-__`pqueue_api_pc` interface:__
+
+**`pqueue_api_pc` interface:**
 
 	interface pqueue_api_pc {
 		void function increment();
@@ -65,7 +60,9 @@ __`pqueue_api_pc` interface:__
 		int function valueOf();
 		string function toString();
 	}
-======
+
+------------------------------------------------------------------------------------------
+
 PQUEUE takes as many as four arguments but you can offer just one:
 
 	var theQueue = PQUEUE([
