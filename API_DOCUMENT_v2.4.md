@@ -108,3 +108,5 @@ Here's an example of how to cascade pqueues:
 		...,
 		PQUEUE_HALT
 	], 'complex'); // the initialPC argument could be omitted
+
+*If you have any questions feel free to [contact me](mailto:hello@xc-h.net)*
