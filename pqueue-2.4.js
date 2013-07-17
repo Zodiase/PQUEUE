@@ -218,7 +218,7 @@ Change Log:
 		// interface object passed to processes
 		api = {
 			heap: PQ.sharedHeap,
-			heap_dump: PQ.dumpSharedHeap,
+			heap_dump: dumpSharedHeap,
 			pause: function (time) {
 				/**
 				 * a wait call can only be made when the process is executing
