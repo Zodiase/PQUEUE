@@ -90,4 +90,6 @@ Now I have more freedom in the way of organizing my code.
 
 **For more detail please read the [API document](API_DOCUMENT_v2.4.md).**
 
+*If you have any questions feel free to [contact me](mailto:hello@xc-h.net)*
+
 **Hope you find this usefull! :)**
