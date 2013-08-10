@@ -17,7 +17,7 @@ Change Log:
     // function wrapped inside
     // fall-back for console
     if (console === undefined) {
-        c = {
+        console = {
             log: function () {},
             warn: function () {}
         };
@@ -51,10 +51,13 @@ Change Log:
         var parent = null,
             processArray = [],
             initialProcessID = 0,
-            queueName = '';
+            queueName = '',
+            arg1Type = typeof arguments[0],
+            arg2Type = typeof arguments[1],
+            arg3Type = typeof arguments[2],
+            arg4Type = typeof arguments[3];
         switch (arguments.length) {
             case 1:
-                var arg1Type = typeof arguments[0];
                 if (arg1Type === 'string') {
                     // PQUEUE(string queueName)
                     return queueStack[arguments[0]];
@@ -75,8 +78,6 @@ Change Log:
                 }
                 break;
             case 2:
-                var arg1Type = typeof arguments[0],
-                    arg2Type = typeof arguments[1];
                 if (arg1Type === 'object' && arg2Type === 'object') {
                     // PQUEUE(object parentQueue, object processArray)
                     parent = arguments[0];
@@ -100,9 +101,6 @@ Change Log:
                 }
                 break;
             case 3:
-                var arg1Type = typeof arguments[0],
-                    arg2Type = typeof arguments[1],
-                    arg3Type = typeof arguments[2];
                 if (arg1Type === 'object' && arg2Type === 'object' && arg3Type === 'number') {
                     // PQUEUE(object parentQueue, object processArray, number initialProcessID)
                     parent = arguments[0];
@@ -126,10 +124,6 @@ Change Log:
                 }
                 break;
             case 4:
-                var arg1Type = typeof arguments[0],
-                    arg2Type = typeof arguments[1],
-                    arg3Type = typeof arguments[2],
-                    arg4Type = typeof arguments[3];
                 if (arg1Type === 'object' && arg2Type === 'object' && arg3Type === 'number' && arg4Type === 'string') {
                     // PQUEUE(object parentQueue, object processArray, number initialProcessID, string queueName)
                     parent = arguments[0];
@@ -380,8 +374,8 @@ Change Log:
             pcGoto(PQ.processCounter - 1);
         }
         function pcOffset(offset) {
-            if (typeof newPc !== 'number') return;
-            PQ.processCounter += newPc;
+            if (typeof offset !== 'number') return;
+            PQ.processCounter += offset;
             PQ.nextProcess = PQ.processStack[PQ.processCounter];
             updatePcStatus();
         }
